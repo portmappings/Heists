@@ -21,7 +21,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 public abstract class Gun {
     private final String displayName;
     private final String name;
@@ -31,13 +30,20 @@ public abstract class Gun {
     private final Material ammoMaterial;
     private final int range;
     private final List<String> lore = new ArrayList<>();
-
     private final int cooldown;
 
+    public Gun(String displayName, String name, Material material, int itemData, double damage, Material ammoMaterial, int range, int cooldown) {
+        this.displayName = displayName;
+        this.name = name;
+        this.material = material;
+        this.itemData = itemData;
+        this.damage = damage;
+        this.ammoMaterial = ammoMaterial;
+        this.range = range;
+        this.cooldown = cooldown;
 
-
-
-
+        Heists.getInstance().getGunManager().getGuns().add(this);
+    }
 
     public ItemStack toItemStack(){
         ItemBuilder item = new ItemBuilder(material);

@@ -17,7 +17,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 public abstract class Throwable {
     private final String displayName;
     private final String name;
@@ -27,6 +26,19 @@ public abstract class Throwable {
     private final double speed;
     private final int timeToDetonate;
     private final int cooldown;
+
+    public Throwable(String displayName, String name, Material material, int itemData, int radius, double speed, int timeToDetonate, int cooldown) {
+        this.displayName = displayName;
+        this.name = name;
+        this.material = material;
+        this.itemData = itemData;
+        this.radius = radius;
+        this.speed = speed;
+        this.timeToDetonate = timeToDetonate;
+        this.cooldown = cooldown;
+        Heists.getInstance().getThrowableManager().getThrowables().add(this);
+    }
+
     private final List<String> lore = new ArrayList();
     public void explode(Location location){}
     public void onTick(Location location){}

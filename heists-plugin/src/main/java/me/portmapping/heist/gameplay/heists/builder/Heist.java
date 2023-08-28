@@ -17,6 +17,6 @@ public abstract class Heist {
     private List<Player> playerList;
     private HeistState state;
 
-    public void setTimeToEnd(){};
+
 
 }

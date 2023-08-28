@@ -28,16 +28,19 @@ public final class Heists extends JavaPlugin {
         instance =this;
         this.gunManager = new GunManager(this);
         this.playerManager = new PlayerManager(this);
-        this.throwableManager = new ThrowableManager(this);
+        this.throwableManager = new ThrowableManager(
+                this);
         this.crewManager = new CrewManager(this);
         getServer().getPluginManager().registerEvents(new GunListener(),this);
         getServer().getPluginManager().registerEvents(new ThrowableListener(),this);
         getServer().getPluginManager().registerEvents(new CrewListener(),this);
 
+
         this.commandHandler = new CommandHandler(this);
         // Plugin startup logic
 
     }
+
 
     @Override
     public void onDisable() {

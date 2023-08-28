@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import me.portmapping.heist.gameplay.crew.builder.CrewInvite;
+import me.portmapping.heist.gameplay.guns.builder.Gun;
 
 import java.util.UUID;
 
@@ -17,5 +18,6 @@ public class Profile {
     private int money_delivered;
     private boolean crewChat;
     private UUID currentCrewID;
+    private Gun unlockedGuns;
     private CrewInvite crewInvite;
 }

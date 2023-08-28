@@ -27,8 +27,6 @@ public class GunManager {
 
     public GunManager(Heists instance){
         main = instance;
-        guns.add(new AK47());
-        guns.add(new Deagle());
     }
     public void giveGun(Player player,Gun gun){
 
