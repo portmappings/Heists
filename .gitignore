@@ -1,0 +1,15 @@
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+hs_err_pid*
+target
+heists-plugin/target
+heists-api/target
+heists-api.iml
+heists-plugin.iml
+.idea
