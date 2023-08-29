@@ -9,7 +9,7 @@ import org.bukkit.Location;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequiredArgsConstructor
+
 public abstract class Store {
 
     private final String displayName;
@@ -19,4 +19,13 @@ public abstract class Store {
     private boolean closed;
     private Map<Integer, Product> productMap = new HashMap<>();
 
+    public Store(String displayName, String name, Cuboid region, Location clerkLocation, boolean closed, Map<Integer, Product> productMap) {
+        this.displayName = displayName;
+        this.name = name;
+        this.region = region;
+        this.clerkLocation = clerkLocation;
+        this.closed = closed;
+        this.productMap = productMap;
+
+    }
 }

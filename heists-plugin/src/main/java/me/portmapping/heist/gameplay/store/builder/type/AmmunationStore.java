@@ -9,5 +9,6 @@ import org.bukkit.Location;
 public class AmmunationStore extends Store {
     public AmmunationStore(Cuboid region, Location clerkLocation) {
         super(CC.t("&4Ammunation"), "Ammunation",region, clerkLocation);
+
     }
 }

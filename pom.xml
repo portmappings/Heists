@@ -11,6 +11,7 @@
     <modules>
         <module>heists-plugin</module>
         <module>heists-api</module>
+        <module>versionsupport_v1_20_R1</module>
     </modules>
 
 
