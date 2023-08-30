@@ -19,9 +19,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.portmapping.heists</groupId>
-            <artifactId>heists-plugin</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

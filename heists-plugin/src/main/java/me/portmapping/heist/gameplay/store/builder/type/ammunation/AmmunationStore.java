@@ -1,4 +1,4 @@
-package me.portmapping.heist.gameplay.store.builder.type;
+package me.portmapping.heist.gameplay.store.builder.type.ammunation;
 
 import me.portmapping.heist.gameplay.store.builder.Store;
 import me.portmapping.heist.utils.Cuboid;
@@ -7,8 +7,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 public class AmmunationStore extends Store {
-    public AmmunationStore(Cuboid region, Location clerkLocation) {
-        super(CC.t("&4Ammunation"), "Ammunation",region, clerkLocation);
+    public AmmunationStore(String displayName, String name, Cuboid region) {
+        super(CC.t(displayName), name,region);
 
     }
+
 }

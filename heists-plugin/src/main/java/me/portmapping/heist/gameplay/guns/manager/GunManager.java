@@ -5,6 +5,7 @@ import me.portmapping.heist.Heists;
 import me.portmapping.heist.gameplay.guns.builder.Gun;
 import me.portmapping.heist.gameplay.guns.builder.type.AK47;
 import me.portmapping.heist.gameplay.guns.builder.type.Deagle;
+import me.portmapping.heist.utils.framework.Manager;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -18,15 +19,14 @@ import java.util.Map;
 
 
 @Getter
-public class GunManager {
+public class GunManager extends Manager {
 
-    private final Heists main;
     private final Map<Player, Long> cooldowns = new HashMap<>();
 
     private final List<Gun> guns = new ArrayList<>();
 
     public GunManager(Heists instance){
-        main = instance;
+       super(instance);
     }
     public void giveGun(Player player,Gun gun){
 

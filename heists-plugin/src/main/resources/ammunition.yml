@@ -1,0 +1,16 @@
+STORE-LOCATION:
+  DISPLAY-NAME: "&4Ammunition Paleto Bay"
+  NAME: "ammunition-1"
+  WORLD: "world"
+  CLERK:
+    X: 5
+    Y: 5
+    Z: 5
+  CORNER1:
+    X: 30
+    Y: 40
+    Z: 40
+  CORNER2:
+    X: 30
+    Y: 40
+    Z: 40
