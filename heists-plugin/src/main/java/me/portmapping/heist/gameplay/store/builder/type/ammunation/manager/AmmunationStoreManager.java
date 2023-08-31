@@ -30,6 +30,9 @@ public class AmmunationStoreManager extends StoreManager {
     }
     private void loadStore(FileConfig fileConfig){
         for(String path : fileConfig.getConfig().getConfigurationSection("STORE-LOCATION").getKeys(false)){
+            String displayName = fileConfig.getConfig().getString(path+".DISPLAY-NAME");
+            String name = fileConfig.getConfig().getString(path+".NAME");
+
             int x1 = fileConfig.getConfig().getInt(path+".CORNER1.X");
             int y1 = fileConfig.getConfig().getInt(path+".CORNER1.Y");
             int z1 = fileConfig.getConfig().getInt(path+".CORNER1.Z");
@@ -58,7 +61,7 @@ public class AmmunationStoreManager extends StoreManager {
             }catch (NullPointerException e){
                 Bukkit.getLogger().warning("The world of an ammunition store does not exists, please check");
             }
-            AmmunationStore ammunationStore = new AmmunationStore(region,clerkLocation);
+            AmmunationStore ammunationStore = new AmmunationStore(displayName,name,region,clerkLocation);
 
         }
     }

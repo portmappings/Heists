@@ -31,8 +31,15 @@ public abstract class Store {
         this.name = name;
         this.region = region;
         this.clerkLocation = clerkLocation;
-        this.closed = closed;
-        this.productMap = productMap;
+
+
+    }
+    public Store(String displayName, String name, Cuboid region, Location clerkLocation) {
+        this.displayName = displayName;
+        this.name = name;
+        this.region = region;
+        this.clerkLocation = clerkLocation;
+
 
     }
 }

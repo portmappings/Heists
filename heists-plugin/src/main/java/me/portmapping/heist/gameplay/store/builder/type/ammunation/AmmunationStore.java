@@ -11,5 +11,9 @@ public class AmmunationStore extends Store {
         super(CC.t(displayName), name,region);
 
     }
+    public AmmunationStore(String displayName, String name, Cuboid region, Location clerkLocation) {
+        super(CC.t(displayName), name,region);
+
+    }
 
 }

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class WandManager extends Manager {
-    private ItemStack wandItem = new ItemBuilder(Material.WOOD_AXE).setName(CC.RED+"Wand").toItemStack();
+    private ItemStack wandItem = new ItemBuilder(Material.WOODEN_AXE).setName(CC.RED+"Wand").toItemStack();
     public WandManager(Heists instance) {
         super(instance);
     }

@@ -23,7 +23,7 @@ public class Product extends Button {
 
     @Override
     public ItemStack getButtonItem(Player p0) {
-        ItemBuilder itemBuilder = new ItemBuilder(Material.WOOD_AXE);
+        ItemBuilder itemBuilder = new ItemBuilder(Material.WOODEN_AXE);
 
         return itemBuilder.toItemStack();
     }
