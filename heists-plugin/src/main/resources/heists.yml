@@ -1,0 +1,10 @@
+HEISTS:
+  MAZE-BANK:
+    NAME: "MazeBank"
+    DISPLAY-NAME: "&cMaze Bank"
+    TYPE: BANK
+    VAULT:
+      AREA: "4, 4, 4, 4, 4, 4, world"
+    DOORS:
+      AREA: "5, 5, 5, 5, 5, 5, world"
+

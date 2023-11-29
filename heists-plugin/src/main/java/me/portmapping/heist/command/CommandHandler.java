@@ -1,12 +1,11 @@
 package me.portmapping.heist.command;
 
 import me.portmapping.heist.Heists;
+import me.portmapping.heist.gameplay.bank.commands.BankCommand;
 import me.portmapping.heist.gameplay.crew.command.CrewCommand;
 import me.portmapping.heist.gameplay.guns.builder.Gun;
 import me.portmapping.heist.gameplay.guns.command.AmmoCommand;
 import me.portmapping.heist.gameplay.guns.command.GunCommand;
-import me.portmapping.heist.gameplay.store.builder.Store;
-import me.portmapping.heist.gameplay.store.enums.StoreType;
 import me.portmapping.heist.gameplay.throwables.builder.Throwable;
 import me.portmapping.heist.gameplay.throwables.command.ThrowableCommand;
 import org.bukkit.ChatColor;
@@ -37,7 +36,7 @@ public class CommandHandler {
 
         this.registerGunAutoCompleter();
         this.registerThrowableAutoCompleter();
-        this.registerStoreAutoCompleter();
+        //this.registerStoreAutoCompleter();
         this.register();
     }
 
@@ -50,7 +49,7 @@ public class CommandHandler {
         commandHandler.getAutoCompleter().registerSuggestion("gun", gunsNames);
         commandHandler.getAutoCompleter().registerParameterSuggestions(Gun.class, "gun");
     }
-    private void registerStoreAutoCompleter(){
+    /*private void registerStoreAutoCompleter(){
         List<String> storeTypes = new ArrayList<>();
         for(Gun gun : main.getGunManager().getGuns()){
             storeTypes.add(ChatColor.stripColor(gun.getName()));
@@ -59,6 +58,8 @@ public class CommandHandler {
         commandHandler.getAutoCompleter().registerSuggestion("storetype", storeTypes);
         commandHandler.getAutoCompleter().registerParameterSuggestions(StoreType.class, "storetype");
     }
+
+     */
     private void registerThrowableAutoCompleter(){
         List<String> throwablesNames = new ArrayList<>();
 
@@ -75,6 +76,7 @@ public class CommandHandler {
         commandHandler.register(new AmmoCommand());
         commandHandler.register(new ThrowableCommand());
         commandHandler.register(new CrewCommand());
+        commandHandler.register(new BankCommand());
     }
 }
 

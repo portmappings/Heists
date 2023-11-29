@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import me.portmapping.heist.Heists;
+import me.portmapping.heist.gameplay.heists.builder.Heist;
 import me.portmapping.heist.utils.ParticleUtils;
 import me.portmapping.heist.utils.item.ItemBuilder;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
@@ -42,7 +44,6 @@ public abstract class Gun {
         this.range = range;
         this.cooldown = cooldown;
 
-        Heists.getInstance().getGunManager().getGuns().add(this);
     }
 
     public ItemStack toItemStack(){
@@ -71,12 +72,19 @@ public abstract class Gun {
         RayTraceResult result = player.getWorld().rayTraceEntities(player.getEyeLocation().add(player.getEyeLocation().getDirection()),player.getEyeLocation().getDirection(),this.getRange());
         player.playSound(player.getLocation(), XSound.ENTITY_GENERIC_EXPLODE.parseSound(),1F,2.4F);
 
-        Entity hit = result.getHitEntity();
+        //Remove one bullet if player is not on creative
+        if(player.getGameMode() != GameMode.CREATIVE){
+            Heists.getInstance().getGunManager().removeAmmo(player,this,1);
+        }
+
+
+
 
         if(result == null) {
             ParticleUtils.spawnParticleLine(player.getLocation(),particle,this.getRange());
             return;
         }
+        Entity hit = result.getHitEntity();
 
         if(hit == null) {
             ParticleUtils.spawnParticleLine(player.getLocation(),particle,result.getHitBlock().getLocation());
@@ -86,15 +94,17 @@ public abstract class Gun {
         if (hit instanceof LivingEntity) {
             LivingEntity livingEntity = (LivingEntity) hit;
 
-            //Storing the entity's original damage ticks to insert them back after removing them
-            int damageTicks = livingEntity.getNoDamageTicks();
-            livingEntity.setNoDamageTicks(0);
-            livingEntity.damage(this.getDamage());
-            player.playSound(player.getLocation(),XSound.ENTITY_EXPERIENCE_ORB_PICKUP.parseSound(),1F,1.5F);
-            livingEntity.setNoDamageTicks(damageTicks);
+            if(!hit.isDead()){
+                //Storing the entity's original damage ticks to insert them back after removing them
+                int damageTicks = livingEntity.getNoDamageTicks();
+                livingEntity.setNoDamageTicks(0);
+                livingEntity.damage(this.getDamage());
+                player.playSound(player.getLocation(),XSound.ENTITY_EXPERIENCE_ORB_PICKUP.parseSound(),1F,1.5F);
+                livingEntity.setNoDamageTicks(damageTicks);
 
 
-            ParticleUtils.spawnParticleLine(player.getLocation(), particle, hit.getLocation());
+                ParticleUtils.spawnParticleLine(player.getLocation(), particle, hit.getLocation());
+            }
         }
 
     }

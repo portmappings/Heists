@@ -36,7 +36,7 @@ public abstract class Throwable {
         this.speed = speed;
         this.timeToDetonate = timeToDetonate;
         this.cooldown = cooldown;
-        Heists.getInstance().getThrowableManager().getThrowables().add(this);
+
     }
 
     private final List<String> lore = new ArrayList();

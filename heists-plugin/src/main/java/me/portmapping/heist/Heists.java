@@ -4,14 +4,17 @@ import lombok.Getter;
 import me.portmapping.heist.command.CommandHandler;
 import me.portmapping.heist.data.config.manager.ConfigManager;
 import me.portmapping.heist.data.player.PlayerManager;
+import me.portmapping.heist.gameplay.bank.manager.BankManager;
 import me.portmapping.heist.gameplay.crew.listener.CrewListener;
 import me.portmapping.heist.gameplay.crew.manager.CrewManager;
 import me.portmapping.heist.gameplay.guns.listener.GunListener;
 import me.portmapping.heist.gameplay.guns.manager.GunManager;
-import me.portmapping.heist.gameplay.store.manager.StoreManager;
+import me.portmapping.heist.gameplay.heists.manager.HeistManager;
 import me.portmapping.heist.gameplay.throwables.listener.ThrowableListener;
 import me.portmapping.heist.gameplay.throwables.manager.ThrowableManager;
 import me.portmapping.heist.gameplay.wand.manager.WandManager;
+import me.portmapping.heist.provider.ScoreboardProvider;
+import me.portmapping.heist.scoreboard.USBScoreboard;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
@@ -27,7 +30,9 @@ public final class Heists extends JavaPlugin {
     private CommandHandler commandHandler;
     private ConfigManager configManager;
     private WandManager wandManager;
-    private StoreManager storeManager;
+    private USBScoreboard usbScoreboard;
+    private BankManager bankManager;
+    private HeistManager heistManager;
     @Override
     public void onEnable() {
 
@@ -36,10 +41,12 @@ public final class Heists extends JavaPlugin {
         this.wandManager = new WandManager(this);
         this.gunManager = new GunManager(this);
         this.playerManager = new PlayerManager(this);
-        this.storeManager = new StoreManager(this);
         this.throwableManager = new ThrowableManager(
                 this);
         this.crewManager = new CrewManager(this);
+        this.bankManager = new BankManager(this);
+        this.heistManager = new HeistManager(this);
+        this.usbScoreboard = new USBScoreboard(this,new ScoreboardProvider(this));
         getServer().getPluginManager().registerEvents(new GunListener(),this);
         getServer().getPluginManager().registerEvents(new ThrowableListener(),this);
         getServer().getPluginManager().registerEvents(new CrewListener(),this);

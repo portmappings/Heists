@@ -1,0 +1,7 @@
+name: Heists
+api-version: '1.13'
+version: ${project.version}
+author: PortMapping
+description: Heists plugin made by PortMapping
+main: me.portmapping.heist.Heists
+load: STARTUP

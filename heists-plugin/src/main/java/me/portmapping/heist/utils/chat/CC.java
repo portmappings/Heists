@@ -5,6 +5,7 @@ import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
+import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +17,9 @@ public class CC {
     public static String t(String input) {
 
         return ChatColor.translateAlternateColorCodes('&', input);
+    }
+    public static String formatNumber(int number){
+        return NumberFormat.getInstance().format(number);
     }
 
 

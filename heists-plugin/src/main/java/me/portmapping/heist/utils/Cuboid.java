@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -42,6 +43,8 @@ public class Cuboid {
         this.zMaxCentered = this.zMax + 0.5;
     }
 
+
+
     public Iterator<Block> blockList() {
         List<Block> bL = new ArrayList<>(this.getTotalBlockSize());
         for (int x = this.xMin; x <= this.xMax; ++x) {
@@ -53,6 +56,48 @@ public class Cuboid {
             }
         }
         return bL.iterator();
+    }
+
+    public String toText(){
+        StringBuilder string = new StringBuilder();
+        string.append(xMin);
+        string.append(", ");
+        string.append(xMax);
+        string.append(", ");
+        string.append(yMin);
+        string.append(", ");
+        string.append(yMax);
+        string.append(", ");
+        string.append(zMin);
+        string.append(", ");
+        string.append(zMax);
+        string.append(", ");
+        string.append(world.getName());
+
+        return string.toString();
+    }
+
+    public static Cuboid fromString(String s){
+        String[] args = s.split(", ");
+
+
+        int[] numbers = new int[args.length-1];
+        for (int i = 0; i < args.length-1; i++) {
+            numbers[i] = Integer.parseInt(args[i]);
+        }
+
+        // Now 'numbers' array contains the numbers as integers
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+
+        World worldTo = Bukkit.getWorld(args[6]);
+        Location loc1 = new Location(worldTo,numbers[0],numbers[1],numbers[2]);
+        Location loc2 = new Location(worldTo,numbers[3],numbers[4],numbers[5]);
+
+        Cuboid cuboid = new Cuboid(loc1,loc2);
+
+        return cuboid;
     }
 
     public Location getCenter() {
