@@ -26,7 +26,7 @@ public class Profile {
     private Gun unlockedGuns;
     private CrewInvite crewInvite;
     private Wand wandSelection = new Wand();
-    private int cash = 103034;
+    private int cash = 13034;
     private int bankMoney;
     private List<BankTransactionLog> bankTransactionLogs = new ArrayList<>();
 }

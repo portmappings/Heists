@@ -33,8 +33,12 @@ public abstract class Gun {
     private final int range;
     private final List<String> lore = new ArrayList<>();
     private final int cooldown;
+    private final GunType type;
+    private final int price;
 
-    public Gun(String displayName, String name, Material material, int itemData, double damage, Material ammoMaterial, int range, int cooldown) {
+    public Gun(String displayName, String name, Material material,
+               int itemData, double damage, Material ammoMaterial,
+               int range, int cooldown, GunType type, int price) {
         this.displayName = displayName;
         this.name = name;
         this.material = material;
@@ -43,6 +47,8 @@ public abstract class Gun {
         this.ammoMaterial = ammoMaterial;
         this.range = range;
         this.cooldown = cooldown;
+        this.type = type;
+        this.price = price;
 
     }
 
@@ -53,6 +59,47 @@ public abstract class Gun {
         item.setDurability((short) itemData);
         item.setLore(lore);
         return item.toItemStack();
+    }
+
+    public boolean isGun(Gun gun){
+        boolean toReturn = true;
+
+        if(this.getDisplayName() == gun.getDisplayName()){
+            toReturn = false;
+        }
+
+        if(this.getName() == gun.getName()){
+            toReturn = false;
+        }
+
+        if(this.getMaterial() == gun.getMaterial()){
+            toReturn = false;
+        }
+
+        if(this.getItemData() == gun.getItemData()){
+            toReturn = false;
+        }
+
+        if(this.getDamage() == gun.getDamage()){
+            toReturn = false;
+        }
+        if(this.getAmmoMaterial() == gun.getAmmoMaterial()){
+            toReturn = false;
+        }
+        if(this.getRange() == gun.getRange()){
+            toReturn = false;
+        }
+        if(this.getCooldown() == gun.getCooldown()){
+            toReturn = false;
+        }
+        if(this.getType() == gun.getType()){
+            toReturn = false;
+        }
+        if(this.getPrice() == gun.getPrice()){
+            toReturn = false;
+        }
+
+        return toReturn;
     }
 
     public void shoot(Player player){

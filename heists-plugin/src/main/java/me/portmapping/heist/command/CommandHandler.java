@@ -6,6 +6,7 @@ import me.portmapping.heist.gameplay.crew.command.CrewCommand;
 import me.portmapping.heist.gameplay.guns.builder.Gun;
 import me.portmapping.heist.gameplay.guns.command.AmmoCommand;
 import me.portmapping.heist.gameplay.guns.command.GunCommand;
+import me.portmapping.heist.gameplay.store.command.ShopCommand;
 import me.portmapping.heist.gameplay.throwables.builder.Throwable;
 import me.portmapping.heist.gameplay.throwables.command.ThrowableCommand;
 import org.bukkit.ChatColor;
@@ -77,6 +78,7 @@ public class CommandHandler {
         commandHandler.register(new ThrowableCommand());
         commandHandler.register(new CrewCommand());
         commandHandler.register(new BankCommand());
+        commandHandler.register(new ShopCommand());
     }
 }
 
